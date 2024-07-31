@@ -26,7 +26,7 @@ export const typography = {
       black: 900,
     },
     letterSpacing: {
-      wide:"0.5rem",
+      wide:"0.25rem",
       normal: "0rem",
       tightest: "-0.02rem",
     },

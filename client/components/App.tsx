@@ -1,18 +1,27 @@
-import { useFruits } from '../hooks/useFruits.ts'
+import { useState, useEffect } from 'react';
+import LandingPage from './LandingPage';
+import LoadingAnimation from './util/Loading';
 
 function App() {
-  const { data } = useFruits()
+  const [animationComplete, setAnimationComplete] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setAnimationComplete(true);
+    }, 8000); 
+
+    return () => clearTimeout(timer); // Cleanup the timer on component unmount
+  }, []);
+
+  if (!animationComplete) {
+    return <LoadingAnimation />;
+  }
 
   return (
-    <>
-      <div className="app">
-        <h1 className="text-3xl font-bold underline">
-          Fullstack Boilerplate - with Fruits!
-        </h1>
-        <ul>{data && data.map((fruit) => <li key={fruit}>{fruit}</li>)}</ul>
-      </div>
-    </>
-  )
+    <div>
+      <LandingPage />
+    </div>
+  );
 }
 
-export default App
+export default App;

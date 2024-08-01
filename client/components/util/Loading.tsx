@@ -1,9 +1,19 @@
-
+import { useState, useEffect } from 'react';
 import '../../styles/wolf.css'; // External CSS file for styles
 
 const LoadingAnimation: React.FC = () => {
+  const [isLeaving, setIsLeaving] = useState(false);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setIsLeaving(true);
+    }, 6000); // Adjust the timeout as needed
+
+    return () => clearTimeout(timeout);
+  }, []);
+
   return (
-    <div className="contenedor">
+    <div className={`contenedor ${isLeaving ? 'animate-reverseCreateWolf' : ''}`}>
       <svg
         version="1.1"
         id="Layer_1"
@@ -15,6 +25,13 @@ const LoadingAnimation: React.FC = () => {
         xmlSpace="preserve"
         enableBackground="new -132 160.8 346.8 472.2"
       >
+        <defs>
+          <filter id="edgeClean" colorInterpolationFilters="sRGB">
+            <feComponentTransfer>
+              <feFuncA type="table" tableValues="0 .5 1 1" />
+            </feComponentTransfer>
+          </filter>
+        </defs>
         <defs>
           <filter id="edgeClean" colorInterpolationFilters="sRGB">
             <feComponentTransfer>

@@ -5,7 +5,7 @@ const { neutral, brand, brandSecondary, danger, warning, success, background } =
 const { typography } = require('./client/styles/typography');
 const { boxShadow } = require('./client/styles/shadow');
 
-export default {
+module.exports = {
   content: ['./index.html', './client/**/*.tsx'],
   theme: {
     extend: {
@@ -64,6 +64,30 @@ export default {
       },
       boxShadow: {
         ...boxShadow,
+      },
+      keyframes: {
+        slideInFromLeft: {
+          '0%': { transform: 'translateX(-100%)' },
+          '100%': { transform: 'translateX(0)' },
+        },
+        slideInFromRight: {
+          '0%': { transform: 'translateX(100%)' },
+          '100%': { transform: 'translateX(0)' },
+        },
+        slideOutToBottom: {
+          '0%': { transform: 'translateY(0)' },
+          '100%': { transform: 'translateY(100%)' },
+        },
+        reverseCreateWolf: {
+          '0%': { opacity: 1, transform: 'scale(1)' },
+          '100%': { opacity: 0, transform: 'scale(0)' },
+        },
+      },
+      animation: {
+        slideInFromLeft: 'slideInFromLeft 1s ease-out',
+        slideInFromRight: 'slideInFromRight 1s ease-out',
+        slideOutToBottom: 'slideOutToBottom 1s ease-in forwards',
+        reverseCreateWolf: 'reverseCreateWolf 2s ease-in-out forwards',
       },
     },
   },

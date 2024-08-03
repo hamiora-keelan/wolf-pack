@@ -4,7 +4,6 @@ import { ParamsDictionary } from 'express-serve-static-core'
 import { JwtPayload } from 'jsonwebtoken'
 import jwks from 'jwks-rsa'
 
-// TODO: set the domain and audience (API Identifier)
 const domain = 'https://piwakwaka-hami.au.auth0.com'
 const audience = 'https://theden/api'
 
@@ -22,7 +21,6 @@ const checkJwt = jwt({
 
 export default checkJwt
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export interface JwtRequest<TReq = any, TRes = any>
   extends Request<ParamsDictionary, TRes, TReq> {
   auth?: JwtPayload

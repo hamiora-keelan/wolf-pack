@@ -10,7 +10,7 @@ function App() {
       setAnimationComplete(true);
     }, 8000); 
 
-    return () => clearTimeout(timer); // Cleanup the timer on component unmount
+    return () => clearTimeout(timer); 
   }, []);
 
   if (!animationComplete) {

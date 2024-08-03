@@ -1,15 +1,16 @@
-import { Outlet } from 'react-router-dom'
+import { Outlet } from 'react-router-dom';
+import { useAuth0 } from '@auth0/auth0-react';
+import Navbar from './Navbar'; 
 
-export default function Layout() {
+const Layout = () => {
+  const { isAuthenticated } = useAuth0();
+
   return (
-    <>
-      <header>
-        <h1>Fullstack Boilerplate - with Fruits!</h1>
-      </header>
-      <main>
-        <Outlet />
-      </main>
-      <footer></footer>
-    </>
-  )
-}
+    <div>
+      {isAuthenticated && <Navbar />}
+      <Outlet />
+    </div>
+  );
+};
+
+export default Layout;

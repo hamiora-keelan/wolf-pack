@@ -31,8 +31,10 @@ const LandingPage = () => {
           ) : (
             <>
               <h2 className="text-xl md:text-3xl font-medium">A place the wolf pack calls home</h2>
-              <BlackButton text="Sign In" onClick={handleSignIn} />
-              <NoColorButton text="Sign Up" onClick={handleSignUp} />
+              <div className="my-5">
+                <BlackButton text="Sign In" onClick={handleSignIn} />
+                <NoColorButton text="Sign Up" onClick={handleSignUp} />
+              </div>              
             </>
           )}
         </div>

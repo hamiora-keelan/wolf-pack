@@ -24,9 +24,10 @@ const HamburgerMenu = () => {
         </svg>
       </button>
       <div
-        className={`fixed top-0 left-0 h-full w-80 bg-black shadow-xl transform ${
+         className={`fixed top-0 left-0 h-full bg-black shadow-xl transform ${
           isOpen ? 'translate-x-0' : '-translate-x-full'
         } transition-transform duration-300 ease-in-out`}
+        style={{ width: '21rem' }}
       >
         <button
           className="absolute top-4 right-4 text-black"
@@ -47,21 +48,21 @@ const HamburgerMenu = () => {
             className="block px-6 py-3 text-white hover:bg-brand-500 hover:text-brand-500"
             onClick={toggleMenu}
           >
-            Menu Item 1
+            About
           </Link>
           <Link
             to="/route2"
            className="block px-6 py-3 text-white hover:bg-brand-500 hover:text-brand-500"
             onClick={toggleMenu}
           >
-            Menu Item 2
+            Discover
           </Link>
           <Link
             to="/route3"
             className="block px-6 py-3 text-white hover:bg-brand-500 hover:text-brand-500"
             onClick={toggleMenu}
           >
-            Menu Item 3
+            Projects
           </Link>
         </div>
       </div>

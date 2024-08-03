@@ -1,13 +1,20 @@
 import backgroundVideo from '../../public/images/wolf-video.mp4';
 import { BlackButton, NoColorButton } from './templates/Buttons';
+import { useAuth0 } from '@auth0/auth0-react';
 
 const LandingPage = () => {
+  const { loginWithRedirect } = useAuth0();
+
   const handleSignIn = () => {
-    console.log('Sign In button clicked');
+    loginWithRedirect({
+      // screen_hint: 'login',
+    });
   };
 
   const handleSignUp = () => {
-    console.log('Sign Up button clicked');
+    loginWithRedirect({
+      // screen_hint: 'signup',
+    });
   };
 
   return (

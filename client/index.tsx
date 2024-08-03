@@ -11,15 +11,13 @@ const queryClient = new QueryClient()
 
 document.addEventListener('DOMContentLoaded', () => {
   createRoot(document.getElementById('app') as HTMLElement).render(
-    /**
-     * TODO: replace domain, clientId, and audience
-     */
+  
     <Auth0Provider
-      domain=""
-      clientId=""
+      domain="piwakwaka-hami.au.auth0.com"
+      clientId="L0eKaegbRDY5IkNITUXI4QtuPSHgE6Jp"
       authorizationParams={{
         redirect_uri: window.location.origin,
-        audience: '',
+        audience: 'https://theden/api',
       }}
     >
       <QueryClientProvider client={queryClient}>

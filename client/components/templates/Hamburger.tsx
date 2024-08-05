@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const HamburgerMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -8,9 +9,9 @@ const HamburgerMenu = () => {
   };
 
   return (
-    <div className="relative">
+    <div>
       <button
-        className="flex items-center px-4 py-3 border rounded text-brand-500 border-brand-500"
+        className="flex items-center px-4 py-3 border rounded text-black border-black"
         onClick={toggleMenu}
       >
         <svg
@@ -23,28 +24,47 @@ const HamburgerMenu = () => {
         </svg>
       </button>
       <div
-        className={`${
-          isOpen ? 'block' : 'hidden'
-        } absolute right-0 mt-2 py-2 w-56 bg-white rounded-lg shadow-xl`}
+         className={`fixed top-0 left-0 h-full bg-black shadow-xl transform ${
+          isOpen ? 'translate-x-0' : '-translate-x-full'
+        } transition-transform duration-300 ease-in-out`}
+        style={{ width: '21rem' }}
       >
-        <a
-          href="#"
-          className="block px-6 py-3 text-brand-500 hover:bg-brand-500 hover:text-white"
+        <button
+          className="absolute top-4 right-4 text-black"
+          onClick={toggleMenu}
         >
-          Menu Item 1
-        </a>
-        <a
-          href="#"
-          className="block px-6 py-3 text-brand-500 hover:bg-brand-500 hover:text-white"
-        >
-          Menu Item 2
-        </a>
-        <a
-          href="#"
-          className="block px-6 py-3 text-brand-500 hover:bg-brand-500 hover:text-white"
-        >
-          Menu Item 3
-        </a>
+          <svg
+            className="fill-current text-white h-6 w-6"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <title>Close</title>
+            <path d="M10 8.586l-4.95-4.95-1.414 1.414L8.586 10l-4.95 4.95 1.414 1.414L10 11.414l4.95 4.95 1.414-1.414L11.414 10l4.95-4.95-1.414-1.414L10 8.586z" />
+          </svg>
+        </button>
+        <div className="mt-16">
+          <Link
+            to="/route1"
+            className="block px-6 py-3 text-white hover:bg-brand-500 hover:text-brand-500"
+            onClick={toggleMenu}
+          >
+            About
+          </Link>
+          <Link
+            to="/route2"
+           className="block px-6 py-3 text-white hover:bg-brand-500 hover:text-brand-500"
+            onClick={toggleMenu}
+          >
+            Discover
+          </Link>
+          <Link
+            to="/route3"
+            className="block px-6 py-3 text-white hover:bg-brand-500 hover:text-brand-500"
+            onClick={toggleMenu}
+          >
+            Projects
+          </Link>
+        </div>
       </div>
     </div>
   );
